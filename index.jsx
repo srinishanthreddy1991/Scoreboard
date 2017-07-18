@@ -41,15 +41,22 @@ var Counter = React.createClass({
             score: 0,
         }
     },
-    inccrementScore: function(e){
-        console.log(e);
+    decrementScore: function () {
+        this.setState({
+            score: (this.state.score - 1),
+        });
+    },
+    incrementScore: function(){
+        this.setState({
+            score: (this.state.score + 1),
+        });
     },
     render: function () {
         return(
             <div className="counter">
-                <button className="counter-action decrement"> - </button>
+                <button className="counter-action decrement" onClick={this.decrementScore}> - </button>
                 <div className="counter-score"> {this.state.score} </div>
-                <button className="counter-action increment" onClick={this.inccrementScore}> + </button>
+                <button className="counter-action increment" onClick={this.incrementScore}> + </button>
             </div>
         );
     }
